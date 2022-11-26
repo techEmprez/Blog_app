@@ -87,7 +87,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- in progress :smile: [Live Demo Link]()
+- in progress :smile: [Live Demo Link](#live-demo)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
