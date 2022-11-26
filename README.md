@@ -10,33 +10,22 @@
 
 - Ruby on Rails [click here >>](https://guides.rubyonrails.org/)
 
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
 ## Built with
 
 - ![](https://img.shields.io/badge/Github-blueviolet)
 - ![](https://img.shields.io/badge/Ruby-red)
 
-### Setup
+## Getting started
 
-$ rails new Hello_Rails --database=postgresql
+To get a local copy of this exercise, Please follow these simple example steps.
 
-$ Clone the repository and change the directory to blog
-
-```
-  $ git clone https://github.com/techEmprez/Hello_Rails.git
-
-  $ cd Hello_Rails
-```
-
-### Install
-
-Install all project dependencies by running the command below
-
-```
-  $ bundle install
+```bash command
+$ git clone https://github.com/IamYunusAli/Tsehafi.git
+$ cd tsehafi
+$ bundle install
+$ rails db:create
+$ rails db:migrate
+$ rails c
 ```
 
 ### Run the application
@@ -44,17 +33,6 @@ Install all project dependencies by running the command below
 ```
   Linux
   $ bin/rails server
-```
-
-```
-  Windows
-  $ ruby bin/rails server
-```
-
-### Visit the homepage of application
-
-```
-  $ http://localhost:3000/
 ```
 
 ### Author
