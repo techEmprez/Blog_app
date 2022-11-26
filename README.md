@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Hello_Rails
+# Blog_app
 
 > This is a fully functional website that shows a list of posts and empowers readers to interact with them by adding comments and liking posts.
 
