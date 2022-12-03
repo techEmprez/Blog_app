@@ -23,7 +23,7 @@ RSpec.describe Comment, type: :model do
   let(:comment) do
     Comment.new(
       author: user,
-      post: post,
+      post:,
       text: 'Hey!, it is my first comment'
     )
   end
