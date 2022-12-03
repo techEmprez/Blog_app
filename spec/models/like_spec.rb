@@ -12,7 +12,7 @@ RSpec.describe Like, type: :model do
 
   let(:post) do
     Post.new(
-      users: user,
+      author: user,
       title: 'My first post',
       text: 'This is my first post',
       comments_counter: 1,
@@ -22,18 +22,18 @@ RSpec.describe Like, type: :model do
 
   let(:like) do
     Like.new(
-      users: user,
-      posts: post
+      author: user,
+      post: post
     )
   end
 
   it 'is only valid with a user' do
-    like.users = user
+    like.author = user
     expect(like).to be_valid
   end
 
   it 'is valid with a post' do
-    like.posts = post
+    like.post = post
     expect(like).to be_valid
   end
 

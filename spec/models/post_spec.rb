@@ -12,7 +12,7 @@ RSpec.describe Post, type: :model do
 
   let(:post) do
     Post.new(
-      users: user,
+      author: user,
       title: 'My first post',
       text: 'This is my first post',
       comments_counter: 1,
@@ -31,12 +31,12 @@ RSpec.describe Post, type: :model do
   end
 
   it 'is only valid with a user' do
-    post.users = user
+    post.author = user
     expect(post).to be_valid
   end
 
   it 'is not valid without a user' do
-    post.users = nil
+    post.author = nil
     expect(post).to_not be_valid
   end
 

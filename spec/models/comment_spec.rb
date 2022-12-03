@@ -12,7 +12,7 @@ RSpec.describe Comment, type: :model do
 
   let(:post) do
     Post.new(
-      users: user,
+      author: user,
       title: 'My first post',
       text: 'This is my first post',
       comments_counter: 1,
@@ -22,8 +22,8 @@ RSpec.describe Comment, type: :model do
 
   let(:comment) do
     Comment.new(
-      users: user,
-      posts: post,
+      author: user,
+      post: post,
       text: 'Hey!, it is my first comment'
     )
   end
@@ -34,12 +34,12 @@ RSpec.describe Comment, type: :model do
   end
 
   it 'is only valid with a user' do
-    comment.users = user
+    comment.author = user
     expect(comment).to be_valid
   end
 
   it 'is valid with a post' do
-    comment.posts = post
+    comment.post = post
     expect(comment).to be_valid
   end
 
