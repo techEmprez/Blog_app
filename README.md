@@ -190,10 +190,12 @@ I would like to thank:
 
 <!-- LICENSE -->
 
-## 📝 License <a name="license"></a>
+## Copyright 2022, [Choice Osobor]
 
-This project is [MIT](./license) licensed.
+###### APP TYPE can be a webpage/website, a web app, a software and so on
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+Permission is hereby granted, free of charge, to any person obtaining a copy of this [APP TYPE] and associated documentation files, to deal in the [APP TYPE] without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the [APP TYPE], and to permit persons to whom the [APP TYPE] is furnished to do so, subject to the following conditions:
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the [APP TYPE].
+
+THE [Ruby-on-Rails-Setup] IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE [APP TYPE] OR THE USE OR OTHER DEALINGS IN THE [APP TYPE].
