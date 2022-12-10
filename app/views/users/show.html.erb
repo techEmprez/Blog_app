@@ -1,1 +1,14 @@
-<h1> This is a single User Page <h1>
+<button class="button"><%= link_to 'Back to users', users_path %></button>
+
+<%= render @user %>
+
+<div class="bio">
+    <h2>Bio</h2>
+    <p><%=@user.bio%></p>
+</div>
+
+<%@post.each do |post|%>
+    <%= render post %>
+<%end%>
+
+<button><%= link_to ("See all posts"),user_posts_path(@user.id) %></button>
