@@ -1,42 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  before(:each) do
-    @user =
-      User.create(
-        name: 'John',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'I am a photographer',
-        posts_counter: 4
-      )
-
-    @post =
-      Post.create(
-        users: @user,
-        title: 'My first post',
-        text: 'This is my first post',
-        comments_counter: 1,
-        likes_counter: 2
-      )
+  subject do
+    Post.create(id: '1', title: 'Post1', text: 'This is my first post', comments_counter: 0, likes_counter: 0,
+                author_id: 1)
   end
-
-  context 'GET #index for a user post' do
-    before(:each) { get user_posts_path(@user) }
+  describe 'GET #index' do
+    before(:each) { get '/users/:user_id/posts' } # get(:index)
     it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
-    it 'renders index template' do
+    it "renders 'index' template" do
       expect(response).to render_template('index')
     end
+    it 'includes the correct placeholder text' do
+      expect(response.body).to include('List all sent posts')
+    end
   end
 
-  context 'GET #show' do
-    before(:each) { get user_post_path(@user, @post) }
+  describe 'GET #show' do
+    before(:each) { get '/users/:user_id/posts/:id' } # get(:show)
     it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
-    it 'renders show template' do
+    it "renders 'show' template" do
       expect(response).to render_template('show')
+    end
+    it 'includes the correct placeholder text' do
+      expect(response.body).to include('Show Posts')
     end
   end
 end
