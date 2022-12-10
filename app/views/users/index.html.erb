@@ -1,11 +1,6 @@
 <div class="navbar black-border">
     <div class="inner-cont">
-        <h2 class="nav-title">Current User: <%= @current.name %></h2>
-    </div>
-
-    <div class="inner-cont">
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'nav-btn' %> 
-    </div>
+    <h2 class="nav-title">User: <%= @user.name %></h2>
 </div>
 
 <% @user.each do |user| %>
