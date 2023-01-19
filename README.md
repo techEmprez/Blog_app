@@ -51,6 +51,7 @@
   <ul>
     <li>HTML, CSS</li>
     <li>JavaScript</li>
+    <li>Ruby on Rails</li>
   </ul>
 </details>
 
