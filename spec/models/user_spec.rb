@@ -1,46 +1,43 @@
-require_relative '../rails_helper'
+require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject do
-    User.new(
-      name: 'John',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'I am a photographer',
-      posts_counter: 4
-    )
+  user = User.new(name: 'Tom', bio: 'Teacher from Mexico', posts_counter: 0, photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1')
+
+  before(:each) { user.save }
+
+  context '#name' do
+    it 'name should be present' do
+      user.name = nil
+      expect(user).to_not be_valid
+    end
   end
 
-  before { subject.save }
+  context '#post_counter' do
+    it 'post_counter should be present' do
+      user.posts_counter = nil
+      expect(user).to_not be_valid
+    end
 
-  it 'is valid with valid attributes' do
-    subject.name = 'John'
-    expect(subject).to be_valid
+    it 'post_counter should be an integer' do
+      user.posts_counter = 'a'
+      expect(user).to_not be_valid
+    end
   end
 
-  it 'is not valid without a name' do
-    subject.name = nil
-    subject.name = 'Jo'
-    expect(subject).to_not be_valid
+  it 'post_counter should be bigger or equal to zero' do
+    user.posts_counter = -1
+    expect(user).to_not be_valid
   end
 
-  it 'returns photo if valid' do
-    subject.photo = 'https://unsplash.com/photos/F_-0BxGuVvo'
-    expect(subject).to be_valid
-  end
+  context '#most_recent_posts' do
+    before(:each) do
+      5.times do |i|
+        Post.new(title: "Post #{i}", text: "text#{i}", comments_counter: 0, likes_counter: 0, author_id: user.id)
+      end
+    end
 
-  it 'is valid with a bio' do
-    subject.bio = 'I am a photographer'
-    expect(subject).to be_valid
-  end
-
-  it 'returns post counter as an integer' do
-    subject.posts_counter = 4
-    expect(subject).to be_valid
-  end
-
-  it 'is not valid if post counter is a string or nil' do
-    subject.posts_counter = 5
-    subject.posts_counter = nil
-    expect(subject).to_not be_valid
+    it 'should return the 3 latest posts' do
+      expect(user.recent_post).to eq(Post.order(created_at: :desc).limit(3))
+    end
   end
 end
