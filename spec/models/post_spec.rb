@@ -1,57 +1,61 @@
-require_relative '../rails_helper'
+require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user) do
-    User.new(
-      name: 'John',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'I am a photographer',
-      posts_counter: 4
-    )
+  post = Post.new(title: 'Post1', text: 'This is my first post', comments_counter: 0, likes_counter: 0, author_id: 1)
+
+  before(:each) { post.save }
+
+  context '#title' do
+    it 'title should be present' do
+      post.title = nil
+      expect(post).to_not be_valid
+    end
+
+    it 'title should not have length>250' do
+      post.title = 'a' * 260
+      expect(post).to_not be_valid
+    end
   end
 
-  let(:post) do
-    Post.new(
-      author: user,
-      title: 'My first post',
-      text: 'This is my first post',
-      comments_counter: 1,
-      likes_counter: 2
-    )
+  context '#comments_counter' do
+    it 'comments_counter should be an integer' do
+      post.comments_counter = 'a'
+      expect(post).to_not be_valid
+    end
+
+    it 'comments_counter should be bigger or equal to zero' do
+      post.comments_counter = -1
+      expect(post).to_not be_valid
+    end
   end
 
-  it 'is not valid without a title' do
-    post.title = nil
-    expect(post).to_not be_valid
+  context '#likes_counter' do
+    it 'likes_counter should be an integer' do
+      post.likes_counter = 'a'
+      expect(post).to_not be_valid
+    end
+
+    it 'likes_counter should be bigger or equal to zero' do
+      post.likes_counter = -1
+      expect(post).to_not be_valid
+    end
   end
 
-  it 'is not valid without a text' do
-    post.text = 'This is my first post'
-    expect(post).to be_valid
+  context '#most_recent_comments' do
+    before(:each) do
+      6.times do |i|
+        Comment.new(text: "Comment #{i}", post_id: post.id)
+      end
+    end
+
+    it 'should return the 5 latest comments' do
+      expect(post.most_recent_comments).to eq(Comment.order(created_at: :desc).limit(5))
+    end
   end
 
-  it 'is only valid with a user' do
-    post.author = user
-    expect(post).to be_valid
-  end
-
-  it 'is not valid without a user' do
-    post.author = nil
-    expect(post).to_not be_valid
-  end
-
-  it 'is not valid if comment counter is less than 0' do
-    post.comments_counter = -1
-    expect(post).to_not be_valid
-  end
-
-  it 'is valid if likes counter is 2' do
-    post.likes_counter = 2
-    expect(post).to be_valid
-  end
-
-  it 'updates posts counter after save' do
-    post.save
-    expect(user.posts_counter).to eq(5)
+  context '#update_post_counter' do
+    it 'should be private' do
+      expect { post.update_post_counter }.to raise_error(NoMethodError)
+    end
   end
 end
