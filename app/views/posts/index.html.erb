@@ -15,10 +15,13 @@
                 <span>Comments: <%= post.comments_counter %> </span> <span> Likes: <%= post.likes_counter %> </span>
             </div>
         </div>
-      
+        <%= form_with model: @like, url: user_post_likes_path(Current.user, post.id), data: { turbo: false} do |form| %>
+            <%= hidden_field_tag( value: post.id) %>  
+    <%= form.submit "Like", class:"btn btn-primary"%>
+    <% end %>
     <div class="d-flex flex-column p-3 mb-5 bg-body rounded">
         <% post.most_recent_comments.each do |comment|%>
-            <span> <%= comment.author.name %>: <%= comment.text%> </span>
+            <span class="posts-comments"> <%= comment.author.name %>: <%= comment.text%> </span>
         <% end %>
     </div>
 <% end %>
