@@ -20,7 +20,7 @@ class LikesController < ApplicationController
     if @like.save
     end
   end
-  
+
   def like_params
     params.require(:like).permit(:post_id, :user_id)
   end
