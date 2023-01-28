@@ -14,3 +14,9 @@
         <span> <%= comment.author.name %>: <%= comment.text%> </span>
     <% end %>
 </div>
+
+
+<div class="buttons mx-auto text-center" style="d-inline width: 200px; ">
+<%=link_to "New Comment", new_user_post_comment_path(@user.id, @post.id), class:"btn btn-dark m-4" %>
+<%=link_to "Like Comment", user_posts_path(@user.id, @post.id), class:"btn btn-dark m-4" %>
+</div>
