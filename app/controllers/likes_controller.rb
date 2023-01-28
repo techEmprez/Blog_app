@@ -15,9 +15,7 @@ class LikesController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = User.find(params[:user_id])
-
     @like = @post.likes.new(post: @post, author: @author)
-    end
   end
 
   def like_params
