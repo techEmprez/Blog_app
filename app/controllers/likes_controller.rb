@@ -12,6 +12,15 @@ class LikesController < ApplicationController
 
   private
 
+  def show
+    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
+
+    @like = @post.likes.new(post: @post, author: @author)
+    if @like.save
+    end
+  end
+  
   def like_params
     params.require(:like).permit(:post_id, :user_id)
   end
