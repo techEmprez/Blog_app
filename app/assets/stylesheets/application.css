@@ -15,23 +15,19 @@
  */
 
 .sections {
-  display: flex;
-  align-items: center;
-  margin: 1rem;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    gap: 1rem;
 }
 
-.users {
-  width: 100%;
-  border: 1px black solid;
-  padding: 0 1rem;
+.user {
+    width: 100%;
+    border: 1px black solid;
+    padding: 0 1rem;
 }
 
 span {
-  display: block;
-  padding-bottom: 1rem;
-}
-
-buttons {
-  justify-content: center;
+    display: block;
+    padding-bottom: 1rem;
 }

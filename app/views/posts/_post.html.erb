@@ -1,7 +1,17 @@
-<div class="posts">
-        <%= link_to user_post_path(post.author_id, post.id) do %>
-                <h4><%=post.title%></h4>
-        <%end%>
-        <p><%=post.text.split("\n").first%></p>
-        <span>Comments: <%=post.comments_counter%>, Likes: <%=post.likes_counter%></span>
-</div>
+<li>
+ <h3> <% post.title%> </h3>
+ <p><%= post.text %></p>
+
+ <strong>
+  <p>
+   Comments: <%= post.comments_counter %>
+   Likes: <%= post.likes_counter %> </p>
+ </strong>
+<ul>
+  <% post.fetch_recent_comments.each do |comment| %>
+  <% username = User.find(comment.author_id).name %>
+  <li><%= username %>: <%= comment.text %></li>
+ <% end %>
+  </ul>
+<a href="/users/<%= @user.id %>/posts/<%= post.id %>"> See more</a>
+</li>

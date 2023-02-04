@@ -1,0 +1,26 @@
+<div class="container">
+      <nav class="navbar navbar-expand-lg bg-light mb-2">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Smart-Blog</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse d-flex justify-content-between align-items-center mx-2" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <%= link_to 'Home', root_path, class: 'nav-link active' %>
+              <% if user_signed_in? %>
+                <li><%= link_to "New Post", new_user_post_path(current_user.id), class: 'nav-link active' %></li>
+                <li><%= link_to "sign-out", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to logout?'}, class: 'nav-link active' %></li>
+                <% else %>
+                <li><%= link_to "Sign in now!",  new_user_session_path , class: 'nav-link active'%></li>
+              <% end %>
+            </div>
+            <div class="navbar-nav">
+              <% if user_signed_in? %>
+                <%= current_user.name%> 
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
