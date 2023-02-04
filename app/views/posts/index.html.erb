@@ -1,38 +1,63 @@
-<div class="d-flex mt-4 shadow p-3 mb-5 bg-body rounded">
-    <%= image_tag(@user.photo, class: "w-25 h-25 me-3") %>
-    <div class="d-flex flex-column mw-100 flex-fill justify-content-center">
-        <h1 class="g-start-2" style="grid-row: 2"> <%= @user.name %>  </h1>
-        <span class="align-self-end"> Number of Posts: <%= @user.posts_counter%> </span>
-    </div>
-</div>
-<% @posts.each_with_index do |post,index|%>
-    <%= link_to user_post_path(@user, post), class:"text-decoration-none" %>
-        <div class="mb-5 d-flex flex-column shadow p-3 mb-5 bg-body rounded">
-            <span> Post # <%= index+1 %> </span>
-            <h2> <%= post.title %></h2>
-            <p> <%= post.text %> </p>
-            <div class="align-self-end">
-                <span>Comments: <%= post.comments_counter %> </span> <span> Likes: <%= post.likes_counter %> </span>
+<div class="container">
+    <div class="card" style="width: 100%">
+      <button class="btn btn-outline-success">
+        <%= link_to 'Create New Post', new_user_post_path, class: 'nav-link active' %>
+      </button>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item ">
+            <div class="d-flex justify-content-between">
+              <div class="h5"><img src=<%= @user.photo %> alt="profile picture of <%= @user.name %>" /><b>User Name: </b><%=@user.name%></div>
+              <p class="mx-4" style="position: relative">
+                Number of Posts:
+                <span
+                  style="
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background: blue;
+                    color: white;
+                    font-size: 12px;
+                    text-align: center;
+                  "
+                  class=""
+                  ><%= @user.posts_counter %></span
+                >
+              </p>
             </div>
-        </div>
-              
-    <div class="d-flex flex-column p-3 mb-5 bg-body rounded">
-        <% post.most_recent_comments.each do |comment|%>
-            <span class="posts-comments"> <%= comment.author.name %>: <%= comment.text%> </span>
-        <% end %>
+          </li>
+          <h6 class="px-2 mt-2">Posts</h6>
+        <% @user.posts.each do |post|%>
+        <li class="list-group-item ">
+          <div class="">
+           <div class="d-flex justify-content-between">
+            <div class="post-container">
+              <h6 class="mb-1"><b>Title: </b><%=post.title%></h6>
+              <p>content: <%=post.text%></p>
+          </div>
+           <div class="counter">
+            <small>comments: </b><%=post.comments_counter%></b> </small>
+            <small>likes: </b><%=post.likes_counter%></b> </small>
+           </div>
+           </div>
+          <div class="comments">
+            <% post.fetch_recent_comments.each do |comment|%>
+            <p>Comment: <%=comment.text%></p>
+            <%end%>
+          </div>
+          </div>
+          <div class="">
+          <% if can? :read, post %>
+            <%= link_to 'Read more', user_post_path(@user, post.id), class: 'btn-sm btn btn-primary' %>
+            <%end%>
+            <% if can? :destroy, post %>
+            <%= link_to 'Delete', user_post_path(@user, post.id),data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete post?'}, class: 'btn-sm btn btn-danger' %>
+            <%end%>
+          <%= link_to 'Back', user_path(@user), class: 'btn-sm btn btn-outline-success' %>
+           </div>
+        </li>
+        <%end%>
+      </ul>
     </div>
-<% end %>
-
-<div class="mx-auto" style="width: 200px;">
-<%=link_to "New Post", new_user_post_path(@user.id), class:"btn btn-dark mb-4" %>
+    <%= will_paginate @posts, :container => false %>
 </div>
-
-<nav aria-label="Page navigation example" class="mx-auto" style="width: 200px;">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>

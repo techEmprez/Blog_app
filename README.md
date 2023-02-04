@@ -1,5 +1,3 @@
-<!-- @format -->
-
 <a name="readme-top"></a>
 
 <div align="center">
@@ -36,8 +34,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Blog_app <a name="about-project"></a>
-
+# 📖 Blogger App <a name="about-project"></a>
 ![blog-gif](https://ansarshome.files.wordpress.com/2021/09/d3464a4351fdf340ccb6bb37c281381a.gif)
 
 **Blogger App** will be a classic example of a blog website. You will create a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
@@ -51,7 +48,6 @@
   <ul>
     <li>HTML, CSS</li>
     <li>JavaScript</li>
-    <li>Ruby on Rails</li>
   </ul>
 </details>
 
@@ -75,20 +71,19 @@
 
 - **[Create and run necessary migration files]**
 - **[Match table and column names to the ERD diagram.]**
+- **[Creating Models, processing models and validating models.]**
+- **[Integration .]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ER DIAGRAM-->
-
 ## :card_index: Entity Relationship Diagram <a name="er-diagram"></a>
-
 ![er-diagram](https://user-images.githubusercontent.com/84629565/203113736-82dacec0-6b75-42e6-b87e-8bf441ffbe57.png)
-
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- in progress :smile: [Live Demo Link](#live-demo)
+- in progress :smile: [Live Demo Link](https://yourdeployedapplicationlink.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,7 +97,6 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 `Git` and `Ruby`
-
 ```
  gem install rails
 ```
@@ -119,9 +113,11 @@ Install this project with:
 
 To run the project, execute the following command:
 
+
 ```sh
   rails server or rails s
-```
+``` 
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -129,11 +125,12 @@ To run the project, execute the following command:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Choice Osobor**
+👤 **Kehinde Onifade**
 
-- GitHub: [@techEmprez](https://github.com/techEmprez)
-- Twitter: [@techEmprez](https://twitter.com/techEmprez)
-- LinkedIn: [Choice Osobor](https://www.linkedin.com/in/choice-osobor/)
+- GitHub: [@kendoriddy](https://github.com/kendoriddy)
+- Twitter: [@RideOnOne09](https://twitter.com/RideOnOne09)
+- LinkedIn: [Kehinde Onifade](https://www.linkedin.com/in/kehindeonifade/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -170,12 +167,23 @@ Give a ⭐️ if you like this project!
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank:
-
 - [Microverse](microverse.org)
+- Code Reviewers
+- [Vitor Guedes Madeira](https://github.com/VitorGuedesMadeira)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FAQ (optional) -->
+
+## ❓ FAQ <a name="faq"></a>
+
+- **[Question_1d]**
+
+  - [Answer_1]
+
+- **[Question_2]**
+
+  - [Answer_2]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -183,10 +191,6 @@ I would like to thank:
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE.md) licensed.
-
-\_NOTE: we recommend using the [MIT license](https://github.com/techEmprez/Blog_app/new/dev) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository).
-
-_NOTE: we recommend using the [MIT license](./LICENSE.md) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -1,21 +1,10 @@
-<button class="button"><%= link_to "Back to posts", user_posts_path %></button>
-
-<%= form_with model: Post.new, url: user_posts_path, data: {turbo: false} do |f| %>
-  <% if flash[:error] %>
-    <p><%= flash[:error]%> </p>
-  <% end %>
-
-  <p>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  </p>
-
-  <p>
-  <%= f.label :text %>
-  <%= f.text_area :text %>
-  </p>
-  <p>
-  <%= f.submit %>
-  </p>
-
-<% end %>
+<section class="py-2  container">
+    <div class=" w-75 mx-auto" style="">
+        <h5 class="fw-dark">Create Post</h5>
+        <%= form_with model: Post, url: user_posts_path, method: :post,  local: true, scope: :post do |form| %>
+        <%= form.text_field :title , class: 'form-control mb-2' %>
+        <%= form.text_area :text , class: 'form-control mb-2' %>
+        <%= form.submit 'Save post' ,class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </section>

@@ -1,11 +1,12 @@
-<div>
-    <h2> Create Comment </h2>
-    <%= form_with model: @comment, url: user_post_comments_path, data: { turbo: false} do |form| %>
-        
-        <div class="mb-3">
-            <%= form.label :text, class: "form-label" %>
-            <%= form.text_field :text, class: "form-control", id: "exampleFormControlInput1", placeholder: "Post Comment" %>
-        </div>
-        <%= form.submit "Post Comments", class:"btn btn-primary" %>
-    <% end %>
+<div class="container w-50 m-auto my-2">
+  <h5>Add Comment</h5>
+  <% if flash.now[:error] %>
+  <div class="alert alert-danger"><%= flash.now[:error] %></div>
+  <% end %> <%= form_with model: @comment, url: user_post_comments_path,
+  method: :post, local: true, scope: :comment do |f| %>
+  <div class="f-flex justify-content-between align-content-center">
+    <div><%= f.text_area :text, class: 'form-control mb-2' %></div>
+    <div><%= f.submit "Add Comment", class: 'btn btn-outline-primary' %></div>
+  </div>
+  <% end %>
 </div>

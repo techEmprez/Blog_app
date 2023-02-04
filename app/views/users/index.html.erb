@@ -1,11 +1,27 @@
-<% @user.each do |user| %>
-    <%= render user, class:"text-decoration-none"  do %>
-    <div class="d-flex p-2 shadow p-3 mb-5 bg-body rounded ">
-        <%= image_tag(user.photo, class: "w-25 h-25 me-3") %>
-        <div class="d-flex flex-column mw-100 flex-fill justify-content-center">
-            <h1 class="g-start-2" style="grid-row: 2"> <%= @user.name %>  </h1>
-            <span class="align-self-end"> Number of Posts: <%= user.posts_count%> </span>
+
+<div class="container">
+  <div class="card" style="width: 100%">
+    <ul class="list-group list-group-flush">
+      <% if user_signed_in? %>
+      <% @users.each do |user|%>
+      <li class="list-group-item ">
+        <div class="d-flex justify-content-between">
+          <div class="h5">
+
+            <img src=<%= user.photo %> alt="profile picture of <%= user.name %>" />
+            <b>Name: </b><%=user.name%> 
+          </div>
+        <small>Number of posts: </b><%=user.posts_counter || 0 %></b> </small>
         </div>
+        <div class="">
+          <%= link_to 'show user', user_path(user), class: 'btn-sm btn btn-primary' %>
+         </div>
+      </li>
+      <%end%>
+      <%end%>
+    </ul>
+    <div class="card-footer">
+      <small class="text-muted">techEmprez 2023© </small>
     </div>
-    <% end %>
-<% end %>
+  </div>
+</div>

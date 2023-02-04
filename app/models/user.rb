@@ -1,13 +1,22 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :confirmable, :lockable, :trackable
+
+  has_many :posts, foreign_key: 'author_id'
   has_many :comments, foreign_key: 'author_id'
   has_many :likes, foreign_key: 'author_id'
-  has_many :posts, foreign_key: 'author_id'
 
-  validates :name, presence: true, length: { maximum: 30 }
-  validates :bio, presence: true, length: { minimum: 15 }
-  validates :posts_counter, numericality: { only_integer: true }, comparison: { greater_than_or_equal_to: 0 }
+  validates :name, presence: true
+  validates :posts_counter, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }
 
-  def recent_post
-    posts.limit(3).order(created_at: :desc)
+  def return_recent_posts
+    posts.order(created_at: :desc).limit(3)
+  end
+
+  def admin?
+    role == 'admin'
   end
 end

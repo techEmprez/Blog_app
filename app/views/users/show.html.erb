@@ -1,27 +1,88 @@
-<div class="d-flex mt-4 shadow p-3 mb-5 bg-body rounded">
-    <%= image_tag(@user.photo, class: "w-25 h-25 me-3") %>
-    <div class="d-flex flex-column mw-100 flex-fill justify-content-center">
-        <h1 class="g-start-2" style="grid-row: 2"> <%= @user.name %>  </h1>
-        <span class="align-self-end"> Number of Posts: <%= @user.posts_counter%> </span>
-    </div>
-</div>
-<div class="mb-4 shadow p-3 mb-5 bg-body rounded">
-    <h3> Bio </h3>
-    <p> <%= @user.bio %> </p>
-</div>
-<% @user.recent_post.each_with_index do |post,index|%>
-    <%= link_to user_post_path(@user, post.id), class:"text-decoration-none"  do %>
-    <div class="mb-5 d-flex flex-column shadow p-3 mb-5 bg-body rounded">
-        <span> Post # <%= index+1 %> </span>
-        <h2> <%= post.title %></h2>
-        <p> <%= post.text %> </p>
-        <div class="align-self-end">
-            <span>Comments: <%= post.comments_counter %> </span> <span> Likes: <%= post.likes_counter %> </span>
-        </div>
-    </div>
-    <% end %>
+<div class="container">
+  <div class="card mb-3">
+    <div class="card-title d-flex justify-content-between p-2">
+      <h6 class="">Username: <%= @user.name %> 
 
-<div class="mx-auto" style="width: 200px;">
-<%= link_to "See all posts", user_posts_path(@user), class: "btn btn-dark mb-4" %>
+        <img src=<%= @user.photo %> alt="profile picture of <%= @user.name %>" />
+      </h6>
+      <p class="mx-4" style="position: relative">
+        Posts:
+        <span
+          style="
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: blue;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+          "
+          class=""
+          ><%= @user.posts_counter %></span
+        >
+      </p>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Bio: <%= @user.bio %></p>
+      <div class="links">
+        <%= link_to 'Back', root_path(@user), class: 'btn-sm btn
+        btn-outline-danger' %>
+      </div>
+    </div>
+    <section class="py-1 container">
+
+      <h6>Posts:</h6>
+      <div class="post">
+        <% @user.posts.each do |post| %>
+        <sec  class="d-flex justify-content-between bg-light p-1 rounded mb-1 post-card">
+          <div class="post-body">
+            <h6><b><%= post.id%>.</b> <%= post.title%></h6>
+            <p><%= post.text%></p>
+          </div>
+          <p class="mx-4" style="position: relative">
+            Comments:
+            <span
+              style="
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: black;
+                color: white;
+                font-size: 10px;
+                text-align: center;
+                margin-right: 30px;
+              "
+              ><%= post.comments_counter%></span
+            >
+            <br/>
+            Likes:
+            <span
+              style="
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: black;
+                color: white;
+                font-size: 10px;
+                text-align: center;
+                margin-right: 30px;
+              "
+              ><%= post.likes_counter%></span
+            >
+          </p>
+        </sec>
+        <% end %>
+      </div>
+    </section>
+    <%= link_to 'See all Posts', user_posts_path(@user), class: 'btn-sm btn
+        btn-outline-info mx-3' %>
+    <div class="card-footer">
+      <p class="card-text">
+        <small class="text-muted"><%= @user.created_at.to_fs(:short) %></small>
+      </p>
+    </div>
+  </div>
 </div>
-<% end %>
