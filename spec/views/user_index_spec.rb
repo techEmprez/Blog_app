@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'users_index', type: :feature do
   before :each do
-    User.create(name: 'John Doe', photo: 'http//p.png', bio: 'Lorem ipsum dolor sit', email: 'xyz@gmail.com', posts_counter: 0)
-    User.create(name: 'Mary Williams', photo: 'http//p1.png', bio: 'Lorem ipsum dolor', email: 'abc@gmail.com', posts_counter: 0)
+    User.create(name: 'John Doe', photo: 'http//p.png', bio: 'Lorem ipsum dolor sit', email: 'xyz@gmail.com',
+                posts_counter: 0)
+    User.create(name: 'Mary Williams', photo: 'http//p1.png', bio: 'Lorem ipsum dolor', email: 'abc@gmail.com',
+                posts_counter: 0)
   end
 
   it 'displays page header' do

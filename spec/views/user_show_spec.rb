@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'users_show', type: :feature do
   before :each do
     # create user
-    @user = User.create(name: 'John Doe', bio: 'Lorem ipsum dolor sit user\'s bio', posts_counter: 0)
+    @user = User.create(name: 'John Doe', bio: 'Lorem ipsum dolor sit user\'s bio',
+                        posts_counter: 0)
 
     # create posts
     @post = Post.create(title: 'Title 1', text: 'Lorem ipsum dolor sit', author_id: User.first.id, comments_counter: 0,

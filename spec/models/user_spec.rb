@@ -27,7 +27,9 @@ describe User, type: :model do
   end
 
   it 'should return 3 recent posts even if number of posts more than 3' do
-    5.times { |time| Post.create(author: subject, title: "Post #{time + 1}", text: 'This is a test post') }
+    5.times do |time|
+      Post.create(author: subject, title: "Post #{time + 1}", text: 'This is a test post')
+    end
     expect(subject.recent_three.length).to eq 3
 
     recent_post_title = subject.recent_three.first.title

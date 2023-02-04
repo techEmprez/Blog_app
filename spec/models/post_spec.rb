@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe Post, type: :model do
   before :each do
-    @author = User.new(name: 'Musa', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Software dev from Nigeria')
+    @author = User.new(name: 'Musa', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                       bio: 'Software dev from Nigeria')
     @post = Post.new(author: @author, title: 'My first post', text: 'This is my very first post on this app',
                      comments_counter: 0)
   end
@@ -52,7 +53,9 @@ describe Post, type: :model do
   end
 
   it 'has the recent 5 comments after it creates 10 comments' do
-    10.times { |time| Comment.create(author: @author, post: @post, text: "Test comment #{time + 1}") }
+    10.times do |time|
+      Comment.create(author: @author, post: @post, text: "Test comment #{time + 1}")
+    end
     expect(@post.fetch_recent_comments.length).to eq 5
 
     recent_comment_text = @post.fetch_recent_comments.first.text

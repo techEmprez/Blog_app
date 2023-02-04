@@ -85,8 +85,8 @@ end
 gem 'devise'
 
 # Bootstrap
-gem 'cssbundling-rails', '~> 1.1'
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'cssbundling-rails', '~> 1.1'
 gem 'sassc'
 
 gem 'jsbundling-rails', '~> 1.0'
