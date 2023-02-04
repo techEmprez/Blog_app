@@ -1,88 +1,21 @@
-<div class="container">
-  <div class="card mb-3">
-    <div class="card-title d-flex justify-content-between p-2">
-      <h6 class="">Username: <%= @user.name %> 
+<h2>User Profile Page</h2>
 
-        <img src=<%= @user.photo %> alt="profile picture of <%= @user.name %>" />
-      </h6>
-      <p class="mx-4" style="position: relative">
-        Posts:
-        <span
-          style="
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: blue;
-            color: white;
-            font-size: 12px;
-            text-align: center;
-          "
-          class=""
-          ><%= @user.posts_counter %></span
-        >
-      </p>
-    </div>
-    <div class="card-body">
-      <p class="card-text">Bio: <%= @user.bio %></p>
-      <div class="links">
-        <%= link_to 'Back', root_path(@user), class: 'btn-sm btn
-        btn-outline-danger' %>
-      </div>
-    </div>
-    <section class="py-1 container">
-
-      <h6>Posts:</h6>
-      <div class="post">
-        <% @user.posts.each do |post| %>
-        <sec  class="d-flex justify-content-between bg-light p-1 rounded mb-1 post-card">
-          <div class="post-body">
-            <h6><b><%= post.id%>.</b> <%= post.title%></h6>
-            <p><%= post.text%></p>
-          </div>
-          <p class="mx-4" style="position: relative">
-            Comments:
-            <span
-              style="
-                position: absolute;
-                width: 15px;
-                height: 15px;
-                border-radius: 50%;
-                background: black;
-                color: white;
-                font-size: 10px;
-                text-align: center;
-                margin-right: 30px;
-              "
-              ><%= post.comments_counter%></span
-            >
-            <br/>
-            Likes:
-            <span
-              style="
-                position: absolute;
-                width: 15px;
-                height: 15px;
-                border-radius: 50%;
-                background: black;
-                color: white;
-                font-size: 10px;
-                text-align: center;
-                margin-right: 30px;
-              "
-              ><%= post.likes_counter%></span
-            >
-          </p>
-        </sec>
-        <% end %>
-      </div>
-    </section>
-    <%= link_to 'See all Posts', user_posts_path(@user), class: 'btn-sm btn
-        btn-outline-info mx-3' %>
-    <div class="card-footer">
-      <p class="card-text">
-        <small class="text-muted"><%= @user.created_at.to_fs(:short) %></small>
-      </p>
-    </div>
-  </div>
+<div>
+<span><%= @user.photo %></span>
+<span><%= @user.name %></span>
+<p>Number of Posts: <%= @user.posts_counter %></p>
 </div>
+
+<p>Bio: <%= @user.bio %></p>
+
+<hr>
+
+<% @user.recent_three.each_with_index do |post, index|%>
+<p>Post #<%= index+1 %></p>
+<p>
+  <%= post.text%>
+</p>
+ <span>Likes : <%= post.likes_counter %></span>
+  <span>Comments : <%= post.comments_counter %></span>
+<% end %>
+<%= link_to "See all posts", user_posts_path(@user.id)%>

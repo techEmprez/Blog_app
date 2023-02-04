@@ -23,14 +23,14 @@ describe User, type: :model do
   end
 
   it 'should return 3 most recent posts' do
-    expect(subject).to respond_to(:return_recent_posts)
+    expect(subject).to respond_to(:recent_three)
   end
 
   it 'should return 3 recent posts even if number of posts more than 3' do
     5.times { |time| Post.create(author: subject, title: "Post #{time + 1}", text: 'This is a test post') }
-    expect(subject.return_recent_posts.length).to eq 3
+    expect(subject.recent_three.length).to eq 3
 
-    recent_post_title = subject.return_recent_posts.first.title
+    recent_post_title = subject.recent_three.first.title
     expect(recent_post_title).to match 'Post 5'
   end
 end

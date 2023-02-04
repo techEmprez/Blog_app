@@ -1,10 +1,28 @@
-<section class="py-2  container">
-    <div class=" w-75 mx-auto" style="">
-        <h5 class="fw-dark">Create Post</h5>
-        <%= form_with model: Post, url: user_posts_path, method: :post,  local: true, scope: :post do |form| %>
-        <%= form.text_field :title , class: 'form-control mb-2' %>
-        <%= form.text_area :text , class: 'form-control mb-2' %>
-        <%= form.submit 'Save post' ,class: "btn btn-primary" %>
-      <% end %>
+<section>
+  <h1>Create new post</h1>
+
+<% if @post.errors.any? %>
+<ul>
+ <% @post.errors.full_messages.each do |msg|%>
+ <li>
+  <%= msg %>
+  </li>
+ <% end %>
+ </ul>
+<% end %>
+
+  <%= form_with model: @post, url: user_posts_path, method: :post, class: 'form' do |f|%>
+    <div>
+      <%= f.label :title, 'Enter post title' %><br>
+      <%= f.text_field :title %>
     </div>
-  </section>
+    <div>
+      <%= f.label :text, 'Enter post content' %><br>
+      <%= f.text_area :text %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</section>
+

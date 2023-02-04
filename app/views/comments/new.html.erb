@@ -1,12 +1,8 @@
-<div class="container w-50 m-auto my-2">
-  <h5>Add Comment</h5>
-  <% if flash.now[:error] %>
-  <div class="alert alert-danger"><%= flash.now[:error] %></div>
-  <% end %> <%= form_with model: @comment, url: user_post_comments_path,
-  method: :post, local: true, scope: :comment do |f| %>
-  <div class="f-flex justify-content-between align-content-center">
-    <div><%= f.text_area :text, class: 'form-control mb-2' %></div>
-    <div><%= f.submit "Add Comment", class: 'btn btn-outline-primary' %></div>
+<%= form_with model: @comment, url: user_post_comments_path do |form| %>
+  <div>
+    <%= form.label :text %>
+    <%= form.text_area :text, placeholder: 'Enter your comment' %>
   </div>
-  <% end %>
-</div>
+  <br>
+  <%= form.submit %>
+<% end %>

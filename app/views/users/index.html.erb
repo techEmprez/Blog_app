@@ -1,27 +1,8 @@
+<h1>List all users</h1>
 
-<div class="container">
-  <div class="card" style="width: 100%">
-    <ul class="list-group list-group-flush">
-      <% if user_signed_in? %>
-      <% @users.each do |user|%>
-      <li class="list-group-item ">
-        <div class="d-flex justify-content-between">
-          <div class="h5">
-
-            <img src=<%= user.photo %> alt="profile picture of <%= user.name %>" />
-            <b>Name: </b><%=user.name%> 
-          </div>
-        <small>Number of posts: </b><%=user.posts_counter || 0 %></b> </small>
-        </div>
-        <div class="">
-          <%= link_to 'show user', user_path(user), class: 'btn-sm btn btn-primary' %>
-         </div>
-      </li>
-      <%end%>
-      <%end%>
-    </ul>
-    <div class="card-footer">
-      <small class="text-muted">techEmprez 2023© </small>
-    </div>
-  </div>
-</div>
+<div>
+<% @users.each do |user|%>
+  <div> <%= render 'user', user: user %></div>
+  <p><%= link_to 'More info', user_path(user.id)%></p>
+<% end %> <br>
+</ul>
