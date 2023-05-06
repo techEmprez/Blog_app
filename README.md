@@ -163,7 +163,7 @@ Give a ⭐️ if you like this project!
 
 I would like to thank:
 
-- [Microverse](microverse.org)
+- [Microverse](https://microverse.org)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
