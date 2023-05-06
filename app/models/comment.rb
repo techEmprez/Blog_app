@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
 
   validates :text, presence: true, length: { maximum: 100 }
 
-  def post_comment_counter
-    post.update(comments_counter: post.comments.count)
+  def update_comments_counter
+    post.increment!(:comments_counter)
   end
 end
