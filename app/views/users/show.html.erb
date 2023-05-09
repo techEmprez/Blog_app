@@ -10,7 +10,7 @@
     <p> <%= @user.bio %> </p>
 </div>
 <% @user.recent_post.each_with_index do |post,index|%>
-    <%= link_to user_post_path(@user, post), class:"text-decoration-none"  do %>
+    <%= link_to user_post_path(@user, post.id), class:"text-decoration-none"  do %>
     <div class="mb-5 d-flex flex-column shadow p-3 mb-5 bg-body rounded">
         <span> Post # <%= index+1 %> </span>
         <h2> <%= post.title %></h2>
@@ -20,7 +20,8 @@
         </div>
     </div>
     <% end %>
-<% end %>
+
 <div class="mx-auto" style="width: 200px;">
 <%= link_to "See all posts", user_posts_path(@user), class: "btn btn-dark mb-4" %>
 </div>
+<% end %>
