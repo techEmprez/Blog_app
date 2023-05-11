@@ -145,9 +145,12 @@ GEM
     public_suffix (5.0.1)
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
+    processing-data
+
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
+     dev
     pg (1.4.5)
     pg (1.4.5-x64-mingw-ucrt)
     public_suffix (5.0.0)
