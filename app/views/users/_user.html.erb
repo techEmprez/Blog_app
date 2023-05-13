@@ -1,9 +1,10 @@
-<div class="sections">
-    <% unless user.photo.nil? %>
-        <%= image_tag (user.photo), height: '115', width: '115' %>
-    <% end %>
-    <div class="users">
-        <h1><%= link_to (user.name), user%></h1>
-        <span>Number of posts: <%= user.posts_counter %></span>    
+<div>
+   <div>
+     <img src=<%= user.photo %> alt="profile picture of <%= user.name %>" />
+   </div>
+    <div>
+      <h2><%= user.name %></h2>
+      <p>Number of Posts: <%= user.posts_counter %></p>
+      <p><%= link_to 'View', user_path(user.id)%></p>
     </div>
 </div>
