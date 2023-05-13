@@ -17,10 +17,12 @@
         </div>
     <% end %>
     <div class="align-self-start d-flex flex-column p-3 mb-5 bg-body rounded">
-        <% post.most_recent_comments.each do |comment|%>
-            <span class="posts-comments"> <%= comment.author.name %>: <%= comment.text%> </span>
+        <% post.recent_comments.each do |comment|%>
+         <p><%= comment.author.name %>: <%= comment.text %></p>
+        <span class="posts-comments"> <%= comment.author.name %>: <%= comment.text%> </span>
         <% end %>
     </div>
+
 <% end %>
 <nav aria-label="Page navigation example" class="mx-auto" style="width: 200px;">
   <ul class="pagination">
