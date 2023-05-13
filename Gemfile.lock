@@ -73,10 +73,7 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
-feature6/views
     capybara (3.39.1)
-    capybara (3.39.0)
-    dev
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -107,15 +104,10 @@ feature6/views
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
- feature6/views
+    json (2.6.3)
     loofah (2.21.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
-    json (2.6.3)
-    loofah (2.20.0)
-      crass (~> 1.0.2)
-      nokogiri (>= 1.5.9)
-dev
     mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
@@ -137,16 +129,11 @@ dev
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
-feature6/views
     nokogiri (1.14.4-x64-mingw-ucrt)
-      racc (~> 1.4)
-
-    nokogiri (1.14.3-x64-mingw-ucrt)
       racc (~> 1.4)
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
-dev
     pg (1.5.3-x64-mingw-ucrt)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -235,9 +222,7 @@ dev
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
-  feature6/views
     thor (1.2.2)
-   thor (1.2.1)
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
