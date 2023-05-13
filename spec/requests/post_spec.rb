@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
- 
   describe 'GET #index' do
-  before(:each) do
-    user = User.create!(name: 'Mark', photo: 'https://i.imgur.com/1.jpg', bio: 'Hey I am techEmprez and I am enrolled in Microverse FullStach Dev course.',
-                        posts_counter: 1)
-    get "/users/#{user.id}/posts"
-  end
+    before(:each) do
+      user = User.create!(name: 'Mark', photo: 'https://i.imgur.com/1.jpg', bio: 'Hey I am techEmprez and I am enrolled in Microverse FullStach Dev course.',
+                          posts_counter: 1)
+      get "/users/#{user.id}/posts"
+    end
     it 'is a success' do
       expect(response).to have_http_status(200)
     end
@@ -20,13 +19,13 @@ RSpec.describe 'Posts', type: :request do
   end
 
   describe 'GET #show' do
-  before(:each) do
-    user = User.create!(name: 'Mark', photo: 'https://i.imgur.com/1.jpg', bio: 'Hey I am techEmprez and I am enrolled in Microverse FullStach Dev course.',
-                        posts_counter: 1)
-    post = Post.create!(author: user, title: 'First Post', text: 'This is a the first post.',
-                        comments_counter: 0, likes_counter: 0)
-    get "/users/#{user.id}/posts/#{post.id}"
-  end
+    before(:each) do
+      user = User.create!(name: 'Mark', photo: 'https://i.imgur.com/1.jpg', bio: 'Hey I am techEmprez and I am enrolled in Microverse FullStach Dev course.',
+                          posts_counter: 1)
+      post = Post.create!(author: user, title: 'First Post', text: 'This is a the first post.',
+                          comments_counter: 0, likes_counter: 0)
+      get "/users/#{user.id}/posts/#{post.id}"
+    end
     it 'is a success' do
       expect(response).to have_http_status(200)
     end

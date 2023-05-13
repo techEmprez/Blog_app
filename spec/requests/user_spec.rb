@@ -19,11 +19,11 @@ RSpec.describe 'Users', type: :request do
   describe 'GET #show' do
     it 'is a success' do
       user = User.create!(name: 'Mark', photo: 'https://i.imgur.com/1.jpg', bio: 'Hey I am techemprez, currently with Microverse studying for fullstack developement..',
-                            posts_counter: 1)
-        get "/users/#{user.id}"
-        expect(response).to be_successful
-        expect(response.body).to include('<h2>Here is a user</h2>')
-        expect(response).to render_template(:show)
+                          posts_counter: 1)
+      get "/users/#{user.id}"
+      expect(response).to be_successful
+      expect(response.body).to include('<h2>Here is a user</h2>')
+      expect(response).to render_template(:show)
     end
   end
 end
