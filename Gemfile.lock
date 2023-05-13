@@ -89,15 +89,9 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
-  feature4/controllers
     erubi (1.12.0)
     ffi (1.15.5)
     globalid (1.1.0)
-    erubi (1.11.0)
-    ffi (1.15.5)
-    ffi (1.15.5-x64-mingw-ucrt)
-    globalid (1.0.0)
-    dev
       activesupport (>= 5.0)
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
@@ -110,11 +104,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-  feature4/controllers
-    loofah (2.20.0)
     json (2.6.3)
-    loofah (2.19.0)
-     dev
+    loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.8.1)
@@ -140,18 +131,11 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.14.3-x64-mingw-ucrt)
       racc (~> 1.4)
-  feature4/controllers
-    pg (1.5.3-x64-mingw-ucrt)
-    public_suffix (5.0.1)
-    nokogiri (1.13.10-x86_64-linux)
-      racc (~> 1.4)
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
-    pg (1.4.5)
-    pg (1.4.5-x64-mingw-ucrt)
-    public_suffix (5.0.0)
-   dev
+    pg (1.5.3-x64-mingw-ucrt)
+    public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
@@ -268,7 +252,6 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
-  x86_64-linux
 
 DEPENDENCIES
   bootsnap
