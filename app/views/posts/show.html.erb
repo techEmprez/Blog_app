@@ -1,1 +1,16 @@
-<h2>Here is one post</h2>
+<h1>This is the Post Page</h1>
+
+<p>
+<%= @post.title %>
+</p>
+
+<p>
+<%= @post.text %>
+</p>
+
+<ul>
+  <% @post.comments.each do |comment| %>
+  <li><%= comment.author.name %> <b>:</b> <%= comment.text %></li>
+ <% end %> 
+  </ul>
+

@@ -1,1 +1,7 @@
-<h2>Here is a list of all users</h2>
+<h1>List of all users</h1>
+
+<div>
+<% @users.each do |user|%>
+  <div> <%= render 'user', user: user %></div>
+<% end %> <br>
+</ul>
