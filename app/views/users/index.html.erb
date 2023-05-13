@@ -1,7 +1,8 @@
-<h1>List of all users</h1>
+<h1>List all users</h1>
 
 <div>
 <% @users.each do |user|%>
   <div> <%= render 'user', user: user %></div>
+  <p><%= link_to 'More info', user_path(user.id)%></p>
 <% end %> <br>
 </ul>

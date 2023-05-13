@@ -1,21 +1,28 @@
-<button class="button"><%= link_to "Back to posts", user_posts_path %></button>
+<section>
+  <h1>Create new post</h1>
 
-<%= form_with model: Post.new, url: user_posts_path, data: {turbo: false} do |f| %>
-  <% if flash[:error] %>
-    <p><%= flash[:error]%> </p>
-  <% end %>
-
-  <p>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  </p>
-
-  <p>
-  <%= f.label :text %>
-  <%= f.text_area :text %>
-  </p>
-  <p>
-  <%= f.submit %>
-  </p>
-
+<% if @post.errors.any? %>
+<ul>
+ <% @post.errors.full_messages.each do |msg|%>
+ <li>
+  <%= msg %>
+  </li>
+ <% end %>
+ </ul>
 <% end %>
+
+  <%= form_with model: @post, url: user_posts_path, method: :post, class: 'form' do |f|%>
+    <div>
+      <%= f.label :title, 'Enter post title' %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :text, 'Enter post content' %><br>
+      <%= f.text_area :text %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</section>
+

@@ -1,16 +1,15 @@
 <h1>This is the Post Page</h1>
 
-<p>
-<%= @post.title %>
-</p>
+<div class="posts">
+  <div>
+    <p> <%= @post.text%> </p>
+    <p > Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %> </p>
+  </div>
+  <div >
+    <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes" do |f| %>
+  <%= f.submit "Like" %>
+  <% end %>
+  </div>
+</div>
 
-<p>
-<%= @post.text %>
-</p>
-
-<ul>
-  <% @post.comments.each do |comment| %>
-  <li><%= comment.author.name %> <b>:</b> <%= comment.text %></li>
- <% end %> 
-  </ul>
-
+<%= link_to 'Add comment', new_user_post_comment_path(@user, @post) %>
