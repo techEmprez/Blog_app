@@ -1,6 +1,6 @@
 <button class="button"><%= link_to "Back to posts", user_posts_path %></button>
 
-<%= form_with(model: Post.new, url: user_posts_path, method: :post) do |f| %>
+<%= form_with model: Post.new, url: user_posts_path, data: {turbo: false} do |f| %>
   <% if flash[:error] %>
     <p><%= flash[:error]%> </p>
   <% end %>

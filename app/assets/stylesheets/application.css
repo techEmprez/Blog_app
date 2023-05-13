@@ -31,3 +31,7 @@ span {
   display: block;
   padding-bottom: 1rem;
 }
+
+buttons {
+  justify-content: center;
+}
