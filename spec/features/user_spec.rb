@@ -33,58 +33,68 @@ RSpec.describe 'UsersPages', type: :feature do
   end
 
   context 'show page' do
-    it 'User profile picture is displayed' do
-      visit user_path(subject)
+    before { visit user_path(subject) }
+
+    it 'displays the user profile picture' do
       expect(page.find('.user-photo')['src']).to have_content(subject.photo)
     end
 
-    it 'User username is displayed' do
-      visit user_path(subject)
+    it 'displays the user name' do
       expect(page).to have_content(subject.name)
     end
 
-    it 'Number of Posts is displayed on page' do
-      visit user_path(subject)
-      expect(page).to have_content('Number of Posts')
+    it 'displays the user email' do
+      expect(page).to have_content(subject.email)
     end
+  end
 
-    it 'Number of Posts for User is displayed' do
-      visit user_path(subject)
-      expect(page).to have_content(subject.posts_count)
-    end
 
-    it 'Users Bio is displayed' do
-      visit user_path(subject)
-      expect(page).to have_content(subject.bio)
-    end
+  it 'User username is displayed' do
+    visit user_path(subject)
+    expect(page).to have_content(subject.name)
+  end
 
-    it 'Users 3 recent posts are displayed' do
-      Post.create(id: '2', author: subject, title: 'Hello', text: 'This is my first post')
-      Post.create(id: '3', author: subject, title: 'Hello', text: 'This is my first post')
-      Post.create(id: '4', author: subject, title: 'Hello', text: 'This is my first post')
-      visit user_path(subject)
-      page.has_content?(subject.recent_post)
-    end
+  it 'Number of Posts is displayed on page' do
+    visit user_path(subject)
+    expect(page).to have_content('Number of Posts')
+  end
 
-    it 'See all posts button is displayed' do
-      visit user_path(subject)
-      expect(page).to have_button('See all posts')
-    end
+  it 'Number of Posts for User is displayed' do
+    visit user_path(subject)
+    expect(page).to have_content(subject.posts_count)
+  end
 
-    it 'Redirect to show particular post' do
-      post = Post.create(id: '2', author: subject, title: 'Hello', text: 'This is my first post')
-      visit(user_path(subject))
-      click_on 'Hello'
-      expect(page.current_path).to eq user_post_path(subject, post)
-    end
+  it 'Users Bio is displayed' do
+    visit user_path(subject)
+    expect(page).to have_content(subject.bio)
+  end
 
-    it 'Redirect to show all users post' do
-      Post.create(id: '2', author: subject, title: 'Hello', text: 'This is my first post')
-      Post.create(id: '3', author: subject, title: 'Hello', text: 'This is my first post')
-      Post.create(id: '4', author: subject, title: 'Hello', text: 'This is my first post')
-      visit(user_path(subject))
-      click_link 'See all posts'
-      expect(page.current_path).to eq(user_posts_path(subject))
-    end
+  it 'Users 3 recent posts are displayed' do
+    Post.create(id: '2', author: subject, title: 'Hello', text: 'This is my first post')
+    Post.create(id: '3', author: subject, title: 'Hello', text: 'This is my first post')
+    Post.create(id: '4', author: subject, title: 'Hello', text: 'This is my first post')
+    visit user_path(subject)
+    page.has_content?(subject.recent_post)
+  end
+
+  it 'See all posts button is displayed' do
+    visit user_path(subject)
+    expect(page).to have_button('See all posts')
+  end
+
+  it 'Redirect to show particular post' do
+    post = Post.create(id: '2', author: subject, title: 'Hello', text: 'This is my first post')
+    visit(user_path(subject))
+    click_on 'Hello'
+    expect(page.current_path).to eq user_post_path(subject, post)
+  end
+
+  it 'Redirect to show all users post' do
+    Post.create(id: '2', author: subject, title: 'Hello', text: 'This is my first post')
+    Post.create(id: '3', author: subject, title: 'Hello', text: 'This is my first post')
+    Post.create(id: '4', author: subject, title: 'Hello', text: 'This is my first post')
+    visit(user_path(subject))
+    click_link 'See all posts'
+    expect(page.current_path).to eq(user_posts_path(subject))
   end
 end
