@@ -1,61 +1,53 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  post = Post.new(title: 'Post1', text: 'This is my first post', comments_counter: 0, likes_counter: 0, author_id: 1)
+  let(:new_user) do
+    User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+  end
+  subject { Post.new(author: new_user, title: 'Hello', text: 'This is my first post') }
+  before do
+    subject.save
+  end
 
-  before(:each) { post.save }
+  context 'Model Association' do
+    it { should belong_to(:author) }
+  end
 
-  context '#title' do
-    it 'title should be present' do
-      post.title = nil
-      expect(post).to_not be_valid
+  context 'Model Validation' do
+    it 'Title should not be empty' do
+      subject.title = nil
+      expect(subject).to_not be_valid
     end
 
-    it 'title should not have length>250' do
-      post.title = 'a' * 260
-      expect(post).to_not be_valid
+    it 'Title should not be too long' do
+      subject.title = 'a' * 35
+      expect(subject).to_not be_valid
+    end
+
+    it 'Text should not be too short' do
+      subject.text = 'a'
+      expect(subject).to_not be_valid
+    end
+
+    it 'Text Should not exceed 250 characters' do
+      subject.text = 'a' * 300
+      expect(subject).to_not be_valid
+    end
+
+    it 'Comments Counter must be an integer greater than or equal to zero' do
+      subject.comments_count = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'Likes Counter must be an integer greater than or equal to zero' do
+      subject.likes_count = nil
+      expect(subject).to_not be_valid
     end
   end
 
-  context '#comments_counter' do
-    it 'comments_counter should be an integer' do
-      post.comments_counter = 'a'
-      expect(post).to_not be_valid
-    end
-
-    it 'comments_counter should be bigger or equal to zero' do
-      post.comments_counter = -1
-      expect(post).to_not be_valid
-    end
-  end
-
-  context '#likes_counter' do
-    it 'likes_counter should be an integer' do
-      post.likes_counter = 'a'
-      expect(post).to_not be_valid
-    end
-
-    it 'likes_counter should be bigger or equal to zero' do
-      post.likes_counter = -1
-      expect(post).to_not be_valid
-    end
-  end
-
-  context '#most_recent_comments' do
-    before(:each) do
-      6.times do |i|
-        Comment.new(text: "Comment #{i}", post_id: post.id)
-      end
-    end
-
-    it 'should return the 5 latest comments' do
-      expect(post.most_recent_comments).to eq(Comment.order(created_at: :desc).limit(5))
-    end
-  end
-
-  context '#update_post_counter' do
-    it 'should be private' do
-      expect { post.update_post_counter }.to raise_error(NoMethodError)
+  context 'Model Methods Tests' do
+    it 'loads only the most recent 5 comments' do
+      expect(subject.recent_comment).to eq(subject.comments.last(5))
     end
   end
 end

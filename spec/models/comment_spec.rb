@@ -1,12 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  comment = Comment.new(text: 'This is my first comment')
-  before(:each) { comment.save }
+  let(:new_user) do
+    User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+  end
 
-  context '#update_comments_counter' do
-    it 'should be private' do
-      expect { comment.update_comments_counter }.to raise_error(NoMethodError)
+  let(:new_post) do
+    Post.new(author: new_user, title: 'Hello', text: 'This is my first post')
+  end
+
+  subject { Comment.new(post: new_post.id, author: new_user, text: 'Hi Tom!') }
+  before { subject.save }
+
+  context 'Model Association' do
+    it { should belong_to(:author) }
+    it { should belong_to(:post) }
+  end
+
+  context 'Model Validation' do
+    it 'Text should not be empty' do
+      subject.text = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'Text should not exceed 100 characters' do
+      subject.text = 'a' * 101
+      expect(subject).to_not be_valid
     end
   end
 end

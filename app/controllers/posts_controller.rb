@@ -1,32 +1,27 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(author_id: params[:user_id])
     @user = User.find(params[:user_id])
-    { @user => @user, @posts => @posts }
-  end
-
-  def new
-    @post = Post.new
-  end
-
-  def create
-    @post = Post.new(post_params)
-    @post.author = current_user
-    if @post.save
-      redirect_to user_posts_path
-    else
-      render :new
-    end
+    @posts = @user.posts
   end
 
   def show
+    @comment = Comment.new
     @post = Post.find(params[:id])
-    @user = User.find(params[:user_id])
+    @comments = @post.comments.includes(:author)
+  end
+
+  def create
+    @post = Current.user.posts.new(post_params)
+    if @post.save
+      redirect_to root_path
+    else
+      render plain: @post.errors.messages
+    end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :text)
+    params.require(:post).permit(:text, :title)
   end
 end
