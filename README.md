@@ -153,6 +153,14 @@ To run the project, execute the following command:
 - Twitter: [@techEmprez](https://twitter.com/techEmprez)
 - LinkedIn: [Choice Osobor](https://www.linkedin.com/in/choice-osobor/)
 
+👤 **Akite Donald**
+
+- GitHub: [@Donald](https://github.com/quavo19)
+- Twitter: [@AkiteDonald](https://twitter.com/DonaldAkite)
+- LinkedIn: [@AkiteDonald](https://www.linkedin.com/in/donald-akite-299a31222/)
+
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
