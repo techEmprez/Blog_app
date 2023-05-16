@@ -113,12 +113,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-feature7/forms
-    loofah (2.21.3)
-
     json (2.6.3)
-    loofah (2.21.2)
- dev
+    loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -142,16 +138,11 @@ feature7/forms
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
- feature7/forms
     nokogiri (1.15.0-x64-mingw-ucrt)
-      racc (~> 1.4)
-
-    nokogiri (1.14.4-x64-mingw-ucrt)
       racc (~> 1.4)
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
- dev
     pg (1.5.3-x64-mingw-ucrt)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -213,7 +204,7 @@ feature7/forms
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.0)
-    rubocop (1.50.2)
+    rubocop (1.51.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.2.0.0)
@@ -252,6 +243,7 @@ feature7/forms
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2023.3)
       tzinfo (>= 1.0.0)
+    unicode-display_width (2.4.2)
     uniform_notifier (1.16.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
@@ -301,8 +293,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
- feature7/forms
    2.4.13
-
-   2.4.12
- dev
