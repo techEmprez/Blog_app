@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="d-flex mt-4 shadow p-3 mb-5 bg-body rounded">
     <%= image_tag(@user.photo, class: "user-photo w-25 h-25 me-3") %>
     <div class="d-flex flex-column mw-100 flex-fill justify-content-center">
@@ -51,4 +52,26 @@
 
 <%= link_to '/', class: "mx-auto", style: "width: 200px; display: block" do %>
   <%= button_tag "Back", class: "btn btn-dark mb-4" %>
+=======
+<h2>User Profile Page</h2>
+
+<div>
+<span><%= @user.photo %></span>
+<span><%= @user.name %></span>
+<p>Number of Posts: <%= @user.posts_counter %></p>
+</div>
+
+<p>Bio: <%= @user.bio %></p>
+
+<hr>
+
+<% @user.recent_three.each_with_index do |post, index|%>
+<p>Post #<%= index+1 %></p>
+<p>
+  <%= post.text%>
+</p>
+ <span>Likes : <%= post.likes_counter %></span>
+  <span>Comments : <%= post.comments_counter %></span>
+>>>>>>> 70bedf69eb39c081f69c284362546932b5ecd313
 <% end %>
+<%= link_to "See all posts", user_posts_path(@user.id)%>

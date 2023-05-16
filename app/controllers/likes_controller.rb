@@ -1,12 +1,14 @@
 class LikesController < ApplicationController
   def create
+    @like = Like.new
     @post = Post.find(params[:post_id])
-    @author = User.find(params[:user_id])
-    @like = @post.likes.new(post: @post, author: @author)
+    @user = User.find(params[:user_id])
+    @like.post = @post
+    @like.author = current_user
     if @like.save
-      redirect_to request.referrer
+      redirect_to user_post_path(@user, @post)
     else
-      render plain: @like.errors.messages
+      render :new, status: :unprocessable_entity
     end
   end
 

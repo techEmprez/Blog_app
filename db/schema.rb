@@ -25,6 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_173137) do
   end
 
   create_table "likes", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "post_id", null: false
@@ -34,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_173137) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.bigint "author_id", null: false
     t.string "title"
     t.text "text"
     t.datetime "created_at", null: false

@@ -1,14 +1,5 @@
 <!-- @format -->
 
-<a name="readme-top"></a>
-
-<div align="center">
-
-  <img src="https://user-images.githubusercontent.com/84629565/202665566-ba1a8ed3-041f-45bc-b21b-efdcc357189b.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-</div>
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -20,7 +11,6 @@
     - [Key Features ](#key-features-)
   - [🔭 Future Features ](#-future-features-)
   - [:card\_index: Entity Relationship Diagram ](#card_index-entity-relationship-diagram-)
-  - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Install](#install)
@@ -47,7 +37,8 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li>HTML, CSS</li>
+    <li>HTML</li>
+    <li>CSS</li>
     <li>JavaScript</li>
     <li>Ruby on Rails</li>
   </ul>
@@ -102,11 +93,6 @@
 
 ![er-diagram](https://user-images.githubusercontent.com/84629565/203113736-82dacec0-6b75-42e6-b87e-8bf441ffbe57.png)
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- in progress :smile: [Live Demo Link](#live-demo)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -197,7 +183,7 @@ Give a ⭐️ if you like this project!
 
 I would like to thank:
 
-- [Microverse](https://www.microverse.org/)
+- [Microverse](https://microverse.org)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
