@@ -45,6 +45,10 @@
 <% end %>
 </div>
 
-<%= link_to '/', class: "mx-auto", style: "width: 200px; display: block" do %>
+<%= link_to [@user, :posts], class: "mx-auto", style: "width: 200px; display: block" do %>
   <%= button_tag "See all posts", class: "btn btn-dark mb-4" %>
+<% end %>
+
+<%= link_to '/', class: "mx-auto", style: "width: 200px; display: block" do %>
+  <%= button_tag "Back", class: "btn btn-dark mb-4" %>
 <% end %>
