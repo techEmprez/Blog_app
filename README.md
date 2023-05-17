@@ -9,13 +9,14 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+  - [🔭 Future Features ](#-future-features-)
   - [:card\_index: Entity Relationship Diagram ](#card_index-entity-relationship-diagram-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Install](#install)
     - [Usage](#usage)
   - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
+  - [🔭 Future Features ](#-future-features--1)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
@@ -58,11 +59,31 @@
 </details>
 
 <!-- Features -->
-
 ### Key Features <a name="key-features"></a>
 
+> Describe between 1-3 key features of the application.
 - **[Create and run necessary migration files]**
 - **[Match table and column names to the ERD diagram.]**
+- **Users can view posts**
+- **Users can add posts**
+- **Users can comment on posts**
+- **Users can like posts**
+- **Users can view comments**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+> Describe 1 - 3 features you will add to the project.
+
+- [ ] **[Users can register ]**
+- [ ] **[Users can Login ]**
+- [ ] **[Users can like and comment on other users posts]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -117,6 +138,14 @@ To run the project, execute the following command:
 - GitHub: [@techEmprez](https://github.com/techEmprez)
 - Twitter: [@techEmprez](https://twitter.com/techEmprez)
 - LinkedIn: [Choice Osobor](https://www.linkedin.com/in/choice-osobor/)
+
+👤 **Akite Donald**
+
+- GitHub: [@Donald](https://github.com/quavo19)
+- Twitter: [@AkiteDonald](https://twitter.com/DonaldAkite)
+- LinkedIn: [@AkiteDonald](https://www.linkedin.com/in/donald-akite-299a31222/)
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

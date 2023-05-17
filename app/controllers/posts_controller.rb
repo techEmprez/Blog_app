@@ -4,40 +4,24 @@ class PostsController < ApplicationController
     @posts = @user.posts
   end
 
-  def new
-    @post = Post.new
+  def show
+    @comment = Comment.new
+    @post = Post.includes([:author]).find(params[:id])
+    @comments = @post.comments.includes(:author)
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @post = current_user.posts.new(post_params)
-    @post.comments_counter = 0
-    @post.likes_counter = 0
-
+    @post = Current.user.posts.new(post_params)
     if @post.save
-      flash[:notice] = 'Post created successfully'
-      redirect_to user_post_url(@user, @post)
+      redirect_to root_path
     else
-      render 'new', status: :unprocessable_entity
+      render plain: @post.errors.messages
     end
-  end
-
-  def show
-    @post = Post.find(params[:id])
-    @user = User.find(params[:user_id])
   end
 
   private
 
-  def set_post
-    @post = Post.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(params[:author_id])
-  end
-
   def post_params
-    params.require(:post).permit(:title, :text)
+    params.require(:post).permit(:text, :title)
   end
 end

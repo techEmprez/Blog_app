@@ -1,21 +1,54 @@
-<h2>User Profile Page</h2>
-
-<div>
-<span><%= @user.photo %></span>
-<span><%= @user.name %></span>
-<p>Number of Posts: <%= @user.posts_counter %></p>
+<div class="d-flex mt-4 shadow p-3 mb-5 bg-body rounded">
+    <%= image_tag(@user.photo, class: "user-photo w-25 h-25 me-3") %>
+    <div class="d-flex flex-column mw-100 flex-fill justify-content-center">
+        <h1 class="g-start-2" style="grid-row: 2"> <%= @user.name %>  </h1>
+        <span class="align-self-end"> Number of Posts: <%= @user.posts_count%> </span>
+    </div>
+</div>
+<div class="mb-4 shadow p-3 mb-5 bg-body rounded">
+    <h3> Bio </h3>
+    <p> <%= @user.bio %> </p>
 </div>
 
-<p>Bio: <%= @user.bio %></p>
-
-<hr>
-
-<% @user.recent_three.each_with_index do |post, index|%>
-<p>Post #<%= index+1 %></p>
-<p>
-  <%= post.text%>
-</p>
- <span>Likes : <%= post.likes_counter %></span>
-  <span>Comments : <%= post.comments_counter %></span>
+<% @user.recent_post.each_with_index do |post,index|%>
+    <%= link_to user_post_path(@user, post), class:"text-decoration-none"  do %>
+    <div class="mb-5 d-flex flex-column shadow p-3 mb-5 bg-body rounded">
+        <span> Post # <%= index+1 %> </span>
+        <h2> <%= post.title %></h2>
+        <p> <%= post.text %> </p>
+        <div class="align-self-end">
+            <span>Comments: <%= post.comments_count %> </span> <span> Likes: <%= post.likes_count %> </span>
+        </div>
+    </div>
+    <% end %>
 <% end %>
-<%= link_to "See all posts", user_posts_path(@user.id)%>
+
+<div class="mt-4 shadow p-3 mb-5 bg-body rounded">
+<h2> Create Post </h2>
+<%= form_with model: @post, url: user_posts_path(Current.user), data: { turbo: false} do |form| %>
+    <% if @post.errors.any? %>
+        <div class="alert alert-danger">
+            <% @post.errors.full_messages do |message| %>
+                <div> <%= message %> </div>
+            <% end %>
+        </div>
+    <% end %>
+    <div class="mb-3">
+        <%= form.label :title, class: "form-label" %>
+        <%= form.text_field :title, class: "form-control", id: "exampleFormControlInput1", placeholder: "Post Title" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :text, class: "form-label" %>
+        <%= form.text_field :text, class: "form-control", id: "exampleFormControlInput2", placeholder: "Post Text" %>
+    </div>
+    <%= form.submit "Create Post", class:"btn btn-primary" %>
+<% end %>
+</div>
+
+<%= link_to [@user, :posts], class: "mx-auto", style: "width: 200px; display: block" do %>
+  <%= button_tag "See all posts", class: "btn btn-dark mb-4" %>
+<% end %>
+
+<%= link_to '/', class: "mx-auto", style: "width: 200px; display: block" do %>
+  <%= button_tag "Back", class: "btn btn-dark mb-4" %>
+<% end %>

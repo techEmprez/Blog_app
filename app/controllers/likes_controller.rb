@@ -11,4 +11,10 @@ class LikesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  private
+
+  def like_params
+    params.require(:like).permit(:post_id, :user_id)
+  end
 end

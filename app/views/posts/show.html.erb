@@ -1,15 +1,39 @@
-<h1>This is the Post Page</h1>
-
-<div class="posts">
-  <div>
-    <p> <%= @post.text%> </p>
-    <p > Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %> </p>
-  </div>
-  <div >
-    <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes" do |f| %>
-  <%= f.submit "Like" %>
-  <% end %>
-  </div>
+<div class="shadow mt-4 p-3 mb-5 bg-body rounded">
+    <div class="d-flex justify-content-between">
+        Post <%= @post.id %> by <%= @post.author.name %>
+        <div>
+            <span>Comments: <%= @post.comments_count %> </span> <span> Likes: <%= @post.likes_count %> </span>
+        </div>
+    </div>
+    <h2> <%= @post.title %></h2>
+    <p class="mt-3"> <%= @post.text%> </p>    
 </div>
+<%= form_with model: @like, url: user_post_likes_path(Current.user, @post.id), data: { turbo: false} do |form| %>
+        <%= hidden_field_tag( value: @post.id) %>  
+<%= form.submit "Like", class:"btn btn-primary"%>
+<% end %>
+<% if @comments %>
+<div class="shadow d-flex flex-column p-3 mb-5 bg-body rounded">
+    <% @comments.each do |comment|%>
+        <span> <%= comment.author.name %>: <%= comment.text%> </span>
+    <% end %>
+</div>
+<% end %>
 
-<%= link_to 'Add comment', new_user_post_comment_path(@user, @post) %>
+<div>
+    <h2> Create Comment </h2>
+    <%= form_with model: @comment, url: user_post_comments_path(Current.user, @post.id), data: { turbo: false} do |form| %>
+        <% if @post.errors.any? %>
+            <div class="alert alert-danger">
+                <% @post.errors.full_messages do |message| %>
+                    <div> <%= message %> </div>
+                <% end %>
+            </div>
+        <% end %>
+        <div class="mb-3">
+            <%= form.label :text, class: "form-label" %>
+            <%= form.text_field :text, class: "form-control", id: "exampleFormControlInput1", placeholder: "Post Title" %>
+        </div>
+        <%= form.submit "Post Comment", class:"btn btn-primary" %>
+    <% end %>
+</div>

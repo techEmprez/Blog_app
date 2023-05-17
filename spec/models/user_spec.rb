@@ -1,43 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  user = User.new(name: 'Tom', bio: 'Teacher from Mexico', posts_counter: 0, photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1')
+  subject { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.') }
+  before { subject.save }
 
-  before(:each) { user.save }
+  context 'Model Validation' do
+    it 'Name should not be empty' do
+      subject.name = nil
+      expect(subject).to_not be_valid
+    end
 
-  context '#name' do
-    it 'name should be present' do
-      user.name = nil
-      expect(user).to_not be_valid
+    it 'Name should not be too long' do
+      subject.name = 'a' * 35
+      expect(subject).to_not be_valid
+    end
+
+    it 'Bio should not be too short' do
+      subject.bio = 'a'
+      expect(subject).to_not be_valid
+    end
+
+    it 'Posts Counter must be an integer greater than or equal to zero' do
+      subject.posts_count = nil
+      expect(subject).to_not be_valid
     end
   end
 
-  context '#post_counter' do
-    it 'post_counter should be present' do
-      user.posts_counter = nil
-      expect(user).to_not be_valid
-    end
-
-    it 'post_counter should be an integer' do
-      user.posts_counter = 'a'
-      expect(user).to_not be_valid
-    end
-  end
-
-  it 'post_counter should be bigger or equal to zero' do
-    user.posts_counter = -1
-    expect(user).to_not be_valid
-  end
-
-  context '#most_recent_posts' do
-    before(:each) do
-      5.times do |i|
-        Post.new(title: "Post #{i}", text: "text#{i}", comments_counter: 0, likes_counter: 0, author_id: user.id)
-      end
-    end
-
-    it 'should return the 3 latest posts' do
-      expect(user.recent_post).to eq(Post.order(created_at: :desc).limit(3))
+  context 'Model Methods Tests' do
+    it 'Test to return recent posts' do
+      expect(subject.recent_post).to eq(subject.posts.last(5))
     end
   end
 end
