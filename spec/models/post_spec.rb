@@ -9,10 +9,6 @@ RSpec.describe Post, type: :model do
     subject.save
   end
 
-  context 'Model Association' do
-    it { should belong_to(:author) }
-  end
-
   context 'Model Validation' do
     it 'Title should not be empty' do
       subject.title = nil

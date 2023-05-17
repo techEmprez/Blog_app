@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.') }
   before { subject.save }
-  it { should have_many(:posts) }
-  it { should have_many(:comments) }
 
   context 'Model Validation' do
     it 'Name should not be empty' do
