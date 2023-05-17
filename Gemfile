@@ -54,8 +54,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
-  gem 'rspec-support', '3.12.0'
   gem 'rspec-rails'
+  gem 'rspec-support', '3.12.0'
 end
 
 group :development do
