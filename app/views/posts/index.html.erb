@@ -5,7 +5,7 @@
         <span class="align-self-end"> Number of Posts: <%= @user.posts_count%> </span>
     </div>
 </div>
-<% @posts.includes([:comments]).each_with_index do |post,index|%>
+<% @posts.each_with_index do |post,index|%>
     <%= link_to user_post_path(@user, post), class:"text-decoration-none"  do %>
         <div class="mb-5 d-flex flex-column shadow p-3 mb-5 bg-body rounded">
             <span> Post # <%= index+1 %> </span>
