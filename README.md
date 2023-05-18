@@ -83,7 +83,6 @@
 - [ ] **[Users can Login ]**
 - [ ] **[Users can like and comment on other users posts]**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -173,7 +172,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-Give a ⭐️ if you like this project!
+Give a ⭐️ if you like this project you can show support by giving a star to the project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -181,7 +180,7 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank:
+I would like to thank microverse and Gorails community for the support and motivation.
 
 - [Microverse](https://microverse.org)
 
