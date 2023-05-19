@@ -1,1 +1,11 @@
-
+<% @users.each do |user| %>
+    <%= link_to user_path(user), class:"text-decoration-none"  do %>
+    <div>
+        <%= image_tag(user.photo) %>
+        <div class="d-flex flex-column mw-100 flex-fill justify-content-center">
+            <h1 class="g-start-2" style="grid-row: 2"> <%= user.name %>  </h1>
+            <span class="align-self-end"> Number of Posts: <%= user.posts_count%> </span>
+        </div>
+    </div>
+    <% end %>
+<% end %>
