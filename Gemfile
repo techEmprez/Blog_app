@@ -49,6 +49,9 @@ gem 'sassc-rails'
 # gem "image_processing", "~> 1.2"
 
 gem 'devise'
+
+# Use cancancan for authorization
+gem 'cancancan'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'bullet'
@@ -57,7 +60,6 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rspec-support', '3.12.0'
-  gem 'cancancan'
 end
 
 group :development do
