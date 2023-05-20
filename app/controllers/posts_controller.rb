@@ -1,17 +1,19 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
+    @posts = Post.where(author_id: params[:user_id])
     @user = User.find(params[:user_id])
-    @posts = @user.posts
   end
 
   def show
     @comment = Comment.new
-    @post = Post.includes([:author]).find(params[:id])
+    @post = Post.find(params[:id])
     @comments = @post.comments.includes(:author)
   end
 
   def create
-    @post = Current.user.posts.new(post_params)
+    @post = current_user.posts.new(post_params)
     if @post.save
       redirect_to root_path
     else
