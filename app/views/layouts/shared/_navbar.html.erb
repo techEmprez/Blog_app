@@ -1,0 +1,28 @@
+<div class='navbar'>
+  <h2>Rails Blog</h2>
+
+  <h3>
+    <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <p>
+          Hello Admin
+        </p>
+      <% else %>
+        <p>
+          Hello <%= current_user.name %>
+        </p>
+      <%end%>
+      <%else%>
+      <p>
+        Hello Guest
+      </p>
+      <%end%>
+  </h3>
+  <div class="sign">
+    <% if user_signed_in? %>
+      <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class:'sign_out' %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path, class:'sign_in' %>
+    <% end %>
+  </div>
+</div>
