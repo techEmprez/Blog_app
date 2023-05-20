@@ -41,3 +41,11 @@ buttons {
   flex-direction: column;
   margin-bottom: 0.8rem;
 }
+
+.mt-2 {
+  width: 100%;
+}
+
+.check {
+  flex-direction: row;
+}
