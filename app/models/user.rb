@@ -3,15 +3,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-  has_many :comments, foreign_key: 'author_id'
-  has_many :likes, foreign_key: 'author_id'
-  has_many :posts, foreign_key: 'author_id'
+  validates :name, presence: true
+  validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
+  has_many :posts, foreign_key: :author_id, class_name: 'Post', dependent: :destroy
+  has_many :likes, foreign_key: :author_id, dependent: :destroy
+  has_many :comments, foreign_key: :author_id, dependent: :destroy
 
-  validates :name, presence: true, length: { maximum: 30 }
-  validates :bio, presence: true, length: { minimum: 15 }
-  validates :posts_count, numericality: { only_integer: true }, comparison: { greater_than_or_equal_to: 0 }
+  def recent_posts
+    posts.order(created_at: :desc).limit(3).to_a
+  end
 
-  def recent_post
-    posts.limit(3).order(created_at: :desc)
+  def admin?
+    role == 'admin'
   end
 end

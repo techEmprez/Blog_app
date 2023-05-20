@@ -14,14 +14,27 @@
 <%
 =end%>
       </ul>
+       <h3>
+    <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <p>
+          Hello Admin
+        </p>
+      <% else %>
+        <p>
+          Hello <%= current_user.name %>
+        </p>
+      <%end%>
+      <%else%>
+      <p>
+        Hello Guest
+      </p>
+      <%end%>
+  </h3>
       <ul class="navbar-nav navbar-right">
               <% if user_signed_in? %>
           <li class="nav-item">
               <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link"  %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-              <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"  %>
           </li>
           <li class="nav-item">
               <%= link_to "Log In", new_user_session_path, class: "nav-link"  %>

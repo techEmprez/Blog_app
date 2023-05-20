@@ -1,11 +1,18 @@
-<% @users.each do |user| %>
-    <%= link_to user_path(user), class:"text-decoration-none"  do %>
-    <div class="d-flex p-2 shadow p-3 mb-5 bg-body rounded ">
-        <%= image_tag(user.photo || "https://png.pngtree.com/png-clipart/20190520/original/pngtree-female-user-vector-avatar-icon-png-image_4005060.jpg", class: "user-photo w-25 h-25 me-3", alt: "profile-imge") %>
-        <div class="d-flex flex-column mw-100 flex-fill justify-content-center">
-            <h1 class="g-start-2" style="grid-row: 2"> <%= user.name %>  </h1>
-            <span class="align-self-end"> Number of Posts: <%= user.posts_count%> </span>
-        </div>
+<h1>This is the lists of all users in the application</h1>
+<% @users.each do |user|%>
+    <div class='user'>
+      <div class='img_container'>
+        <img src="<%= user.photo %>" alt="<%= user.name %>" class='user_image'>
+      </div>
+      <div class='user_details'>
+        <%= link_to user_path(user.id) do %>
+        <h2>
+          <%= user.name %>
+        </h2>
+       <%end%>
+        <h4>
+          <%= user.posts_counter%>
+        </h4>
+      </div>
     </div>
-    <% end %>
 <% end %>
