@@ -57,6 +57,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rspec-support', '3.12.0'
+  gem 'cancancan'
 end
 
 group :development do
