@@ -136,7 +136,7 @@ To run the project, execute the following command:
 
 - GitHub: [![@techEmprez](https://img.shields.io/badge/-techEmprez-white?logo=GitHub&logoColor=181717&style=plastic)](https://github.com/techEmprez)
 - Twitter: [![@techEmprez](https://img.shields.io/badge/-techEmprez-blue?logo=Twitter&logoColor=skyBlue&style=plastic)](https://twitter.com/techEmprez)
-- LinkedIn: [![Choice-Osobor(techEmprez)](https://img.shields.io/badge/-choice-osobor(techEmprez)-white?logo=LinkedIn&logoColor=181717&style=plastic)](https://www.linkedin.com/in/choice-osobor/)
+- LinkedIn: [![Choice-Osobor(techEmprez)](https://img.shields.io/badge/-choice-osobor-white?logo=LinkedIn&logoColor=181717&style=plastic)](https://www.linkedin.com/in/choice-osobor/)
 
 
 👤 **Akite Donald**
