@@ -134,9 +134,10 @@ To run the project, execute the following command:
 
 👤 **Choice Osobor**
 
-- GitHub: [@techEmprez](https://github.com/techEmprez)
-- Twitter: [@techEmprez](https://twitter.com/techEmprez)
-- LinkedIn: [Choice Osobor](https://www.linkedin.com/in/choice-osobor/)
+- GitHub: [![@techEmprez](https://img.shields.io/badge/-techEmprez-white?logo=GitHub&logoColor=181717&style=plastic)](https://github.com/techEmprez)
+- Twitter: [![@techEmprez](https://img.shields.io/badge/-techEmprez-blue?logo=Twitter&logoColor=skyBlue&style=plastic)](https://twitter.com/techEmprez)
+- LinkedIn: [![Choice-Osobor(techEmprez)](https://img.shields.io/badge/-techEmprez-white?logo=LinkedIn&logoColor=181717&style=plastic)](https://www.linkedin.com/in/choice-osobor/)
+
 
 👤 **Akite Donald**
 
